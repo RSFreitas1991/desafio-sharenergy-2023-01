@@ -1,0 +1,19 @@
+{
+  "name": "desafio-sharenergy-2023-01",
+  "version": "1.0.0",
+  "description": "Desafio Vaga Dev 2023",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SHARENERGY-OFICIAL/desafio-sharenergy-2023-01.git"
+  },
+  "author": "Raphael Soares de Freitas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SHARENERGY-OFICIAL/desafio-sharenergy-2023-01/issues"
+  },
+  "homepage": "https://github.com/SHARENERGY-OFICIAL/desafio-sharenergy-2023-01#readme"
+}
