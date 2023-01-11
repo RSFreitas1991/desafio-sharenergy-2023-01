@@ -13,7 +13,7 @@ function Login() {
   return (
     <div className="h-screen flex justify-center md:items-center">
       <div
-        className="bg-blue-500 border-2 border-black rounded-md
+        className="bg-sharenergy-green rounded-md
         w-full h-1/3 flex flex-col items-center justify-center md:flex-wrap md:max-w-sm"
       >
         <h2 className="login-title">SISTEMA DE GESTÃO DE CLIENTES</h2>
@@ -38,9 +38,10 @@ function Login() {
             type="button"
             onClick={ () => console.log('teste') }
             disabled={ submitButton }
-            className="login-button"
+            className="border-2 rounded-md border-black
+            m-2 max-w-xs p-1 text-white"
           >
-            Play
+            LOGIN
           </button>
         </fieldset>
       </div>

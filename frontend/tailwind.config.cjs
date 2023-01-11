@@ -5,7 +5,11 @@ module.exports = {
     "./src/**/*.{js,jsx}",
 ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'sharenergy-green': '#00A2A2',
+      },
+    },
   },
   plugins: [],
-}
+};
