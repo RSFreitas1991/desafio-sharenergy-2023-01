@@ -10,30 +10,30 @@ function UsersList() {
   const [usersArray, setUsersArray] = useState();
   const [usersArrayShow, setUsersArrayShow] = useState();
   const [pages, setPages] = useState();
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(DEFAULT_USERS_PER_PAGE);
   const contextAPI = useContext(AppContext);
   const {
     usersPerPage,
     usersFetched,
   } = contextAPI;
   useEffect(() => {
-    if (!users) {
-      const fetchUsers = async () => {
-        let totalFetch = DEFAULT_NUMBER_OF_USERS;
-        if (usersFetched) totalFetch = usersFetched;
-        try {
-          const response = await axios.get(`https://randomuser.me/api/?results=${totalFetch}`);
-          const data = await response.data.results;
-          setUsers(data);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      fetchUsers();
-    }
-  }, [users, usersFetched]);
+    const fetchUsers = async () => {
+      let totalFetch = DEFAULT_NUMBER_OF_USERS;
+      if (usersFetched) totalFetch = usersFetched;
+      try {
+        const response = await axios.get(`https://randomuser.me/api/?results=${totalFetch}`);
+        const data = await response.data.results;
+        setUsers(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUsers();
+  }, [usersFetched]);
 
   useEffect(() => {
-    if (!usersArray && users) {
+    if (users) {
       const array = users.map((index) => (
         <div
           key={ users.indexOf(index) }
@@ -56,22 +56,21 @@ function UsersList() {
         </div>));
       setUsersArray(array);
     }
-  }, [users, usersArray]);
+  }, [users, usersFetched]);
 
   useEffect(() => {
     if (usersArray) {
-      let defaultUsersPerPage = DEFAULT_USERS_PER_PAGE;
-      if (usersPerPage) defaultUsersPerPage = usersPerPage;
       const tempShowUsersArray = [];
       const showUsersCard = () => {
-        for (let index = 0; index < defaultUsersPerPage; index += 1) {
+        for (let index = start;
+          index < end; index += 1) {
           tempShowUsersArray.push(usersArray[index]);
         }
       };
       showUsersCard();
       setUsersArrayShow(tempShowUsersArray);
     }
-  }, [usersArray, usersPerPage]);
+  }, [usersArray, usersPerPage, start, end]);
 
   useEffect(() => {
     let totalFetch = DEFAULT_NUMBER_OF_USERS;
@@ -88,6 +87,10 @@ function UsersList() {
           className="bg-sharenergy-green cursor-pointer rounded
             max-w-xs p-1 text-white font-sans hover:bg-blue-300
             hover:text-black font-bold"
+          onClick={ () => {
+            setStart((index - 1) * defaultUsersPerPage);
+            setEnd(index * defaultUsersPerPage);
+          } }
         >
           {index}
         </button>,

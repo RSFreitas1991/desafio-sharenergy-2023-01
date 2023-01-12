@@ -18,9 +18,9 @@ function FetchAndSearch() {
     }
   };
   return (
-    <nav className="md:flex md:justify-center">
+    <nav className="flex flex-col items-center md:flex md:justify-center">
       <fieldset className="flex">
-        <div>
+        <div className="md:flex md:items-center">
           <input
             type="number"
             name="usersFetch"
@@ -41,7 +41,7 @@ function FetchAndSearch() {
         <button
           type="button"
           className="bg-sharenergy-green rounded-md cursor-pointer
-              m-2 max-w-xs p-1 text-white font-sans hover:bg-blue-300
+              m-2 p-1 text-white font-sans hover:bg-blue-300
               hover:text-black font-bold"
           onClick={ () => {
             setUsersFetched(tempUsersFetch);
@@ -53,14 +53,14 @@ function FetchAndSearch() {
       </fieldset>
       <div className="flex">
         <fieldset className="flex items-center">
-          <select className="h-7">
+          <select className="h-7 m-2">
             <option value="Nome">Nome</option>
             <option value="Email">Email</option>
             <option value="Username">Username</option>
           </select>
           <input
             type="text"
-            placeholder="Buscar por?"
+            placeholder="Termo de busca"
             className="border-2 border-black rounded-md m-2 w-40 hover:scale-110"
           />
         </fieldset>
