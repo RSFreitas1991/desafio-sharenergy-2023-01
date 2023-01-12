@@ -8,7 +8,7 @@ function Header() {
   const navigate = useNavigate();
   return (
     <div className="w-full">
-      <div className="flex justify-end items-center p-2">
+      <div className="flex justify-end items-center p-2 mx-2">
         <span
           className="m-1 font-bold"
         >

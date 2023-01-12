@@ -2,7 +2,7 @@ import axios from 'axios';
 import { React, useEffect, useState } from 'react';
 
 function UsersList() {
-  const NUMBER_OF_USERS = 10;
+  const NUMBER_OF_USERS = 12;
   const [users, setUsers] = useState();
   const [usersArray, setUsersArray] = useState();
   useEffect(() => {
@@ -18,26 +18,35 @@ function UsersList() {
       };
       fetchUsers();
     }
-    console.log('executei o useEffect do fetch');
   }, [users]);
 
   useEffect(() => {
     if (!usersArray && users) {
       console.log(users);
       const array = users.map((index) => (
-        <div key={ users.indexOf(index) }>
-          <h1>{index.name.first}</h1>
+        <div
+          key={ users.indexOf(index) }
+          className="flex flex-col w-72 items-center bg-sharenergy-green
+            text-white font-sans rounded-lg p-2 m-4"
+        >
+          <img alt={ index.name.fist } src={ index.picture.large } />
+          <h1 className="font-bold underline underline-offset-2">Nome</h1>
+          <h2>{`${index.name.title}. ${index.name.first} ${index.name.last}`}</h2>
+          <h1 className="font-bold underline underline-offset-2">Email</h1>
+          <h1>{`${index.email}`}</h1>
+          <h1 className="font-bold underline underline-offset-2">Username</h1>
+          <h1>{`${index.login.username}`}</h1>
+          <h1 className="font-bold underline underline-offset-2">Idade</h1>
+          <h1>{`${index.dob.age}`}</h1>
         </div>));
       setUsersArray(array);
     }
-    console.log('executei o useEffect do array');
   }, [users, usersArray]);
   return (
     <div>
-      <h1>TESTE</h1>
       {usersArray
         && (
-          <div>
+          <div className="p-2 flex flex-wrap justify-center">
             {usersArray}
           </div>
         )}
