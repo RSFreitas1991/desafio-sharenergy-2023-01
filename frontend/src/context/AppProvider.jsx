@@ -5,13 +5,19 @@ import AppContext from './AppContext';
 export default function AppProvider({ children }) {
   const [usersPerPage, setUsersPerPage] = useState();
   const [usersFetched, setUsersFetched] = useState();
+  const [users, setUsers] = useState();
+  const [usersArray, setUsersArray] = useState();
 
   const contextAPI = useMemo(() => ({
     usersPerPage,
     setUsersPerPage,
     usersFetched,
     setUsersFetched,
-  }), [usersPerPage, usersFetched]);
+    users,
+    setUsers,
+    usersArray,
+    setUsersArray,
+  }), [usersPerPage, usersFetched, users, usersArray]);
 
   return (
     <AppContext.Provider value={ contextAPI }>

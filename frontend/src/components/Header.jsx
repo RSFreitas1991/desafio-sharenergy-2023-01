@@ -35,7 +35,13 @@ function Header() {
           type="button"
           className="border-2 p-1 rounded"
         >
-          STATUS CODE HTTP
+          HTTP CAT
+        </button>
+        <button
+          type="button"
+          className="border-2 p-1 rounded"
+        >
+          RANDOM DOG
         </button>
         <button
           type="button"

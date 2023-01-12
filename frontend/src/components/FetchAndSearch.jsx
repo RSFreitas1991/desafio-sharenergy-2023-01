@@ -8,6 +8,8 @@ function FetchAndSearch() {
   const {
     setUsersPerPage,
     setUsersFetched,
+    users,
+    setUsers,
   } = contextAPI;
   const handleChange = (target) => {
     const { name, value } = target.target;
@@ -15,6 +17,30 @@ function FetchAndSearch() {
       setTempUsersFetch(value);
     } else {
       setTempUsersPerPage(value);
+    }
+  };
+  const search = () => {
+    const { value } = document.getElementById('attributes');
+    const term = document.getElementById('searchAttribute').value;
+    switch (value) {
+    case 'name': {
+      const usersFiltered = users.filter((s) => s.name.first.includes(term)
+            || s.name.last.includes(term));
+      setUsers(usersFiltered);
+      break;
+    }
+    case 'email': {
+      const usersFiltered = users.filter((s) => s.email.includes(term));
+      setUsers(usersFiltered);
+      break;
+    }
+    case 'username': {
+      const usersFiltered = users.filter((s) => s.login.username.includes(term));
+      setUsers(usersFiltered);
+      break;
+    }
+    default:
+      break;
     }
   };
   return (
@@ -53,13 +79,14 @@ function FetchAndSearch() {
       </fieldset>
       <div className="flex">
         <fieldset className="flex items-center">
-          <select className="h-7 m-2">
-            <option value="Nome">Nome</option>
-            <option value="Email">Email</option>
-            <option value="Username">Username</option>
+          <select name="attributes" id="attributes" className="h-7 m-2">
+            <option value="name">Nome</option>
+            <option value="email">Email</option>
+            <option value="username">Username</option>
           </select>
           <input
             type="text"
+            id="searchAttribute"
             placeholder="Termo de busca"
             className="border-2 border-black rounded-md m-2 w-40 hover:scale-110"
           />
@@ -69,6 +96,7 @@ function FetchAndSearch() {
           className="bg-sharenergy-green rounded-md cursor-pointer
               m-2 max-w-xs p-1 text-white font-sans hover:bg-blue-300
               hover:text-black font-bold"
+          onClick={ () => search() }
         >
           Buscar
         </button>

@@ -1,13 +1,10 @@
 import axios from 'axios';
 import { React, useContext, useEffect, useState } from 'react';
 import AppContext from '../context/AppContext';
-import FetchAndSearch from './FetchAndSearch';
 
 function UsersList() {
   const DEFAULT_NUMBER_OF_USERS = 12;
   const DEFAULT_USERS_PER_PAGE = 12;
-  const [users, setUsers] = useState();
-  const [usersArray, setUsersArray] = useState();
   const [usersArrayShow, setUsersArrayShow] = useState();
   const [pages, setPages] = useState();
   const [start, setStart] = useState(0);
@@ -16,6 +13,10 @@ function UsersList() {
   const {
     usersPerPage,
     usersFetched,
+    users,
+    setUsers,
+    usersArray,
+    setUsersArray,
   } = contextAPI;
   useEffect(() => {
     const fetchUsers = async () => {
@@ -30,7 +31,7 @@ function UsersList() {
       }
     };
     fetchUsers();
-  }, [usersFetched]);
+  }, [usersFetched, setUsers]);
 
   useEffect(() => {
     if (users) {
@@ -56,7 +57,7 @@ function UsersList() {
         </div>));
       setUsersArray(array);
     }
-  }, [users, usersFetched]);
+  }, [users, usersFetched, setUsersArray]);
 
   useEffect(() => {
     if (usersArray) {
@@ -101,7 +102,6 @@ function UsersList() {
 
   return (
     <div>
-      <FetchAndSearch />
       {usersArrayShow
         && (
           <div className="p-2 flex flex-wrap justify-center">
