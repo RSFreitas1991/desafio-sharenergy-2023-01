@@ -29,7 +29,11 @@ function UsersList() {
           className="flex flex-col w-72 items-center bg-sharenergy-green
             text-white font-sans rounded-lg p-2 m-4"
         >
-          <img alt={ index.name.fist } src={ index.picture.large } />
+          <img
+            alt={ index.name.fist }
+            src={ index.picture.large }
+            className="rounded-md"
+          />
           <h1 className="font-bold underline underline-offset-2">Nome</h1>
           <h2>{`${index.name.title}. ${index.name.first} ${index.name.last}`}</h2>
           <h1 className="font-bold underline underline-offset-2">Email</h1>
