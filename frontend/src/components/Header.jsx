@@ -27,13 +27,14 @@ function Header() {
         <button
           type="button"
           className="border-2 p-1 rounded"
-          onClick={ () => navigate('/index') }
+          onClick={ () => navigate('/Users') }
         >
           USUÁRIOS
         </button>
         <button
           type="button"
           className="border-2 p-1 rounded"
+          onClick={ () => navigate('/HttpCat') }
         >
           HTTP CAT
         </button>

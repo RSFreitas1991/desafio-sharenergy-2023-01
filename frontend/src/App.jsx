@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Index from './pages/Index';
+import Users from './pages/Users';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
+import HttpCat from './pages/HttpCat';
 
 function App() {
   return (
@@ -14,8 +15,12 @@ function App() {
           element={ <Login /> }
         />
         <Route
-          path="/index"
-          element={ <Index /> }
+          path="/Users"
+          element={ <Users /> }
+        />
+        <Route
+          path="/HttpCat"
+          element={ <HttpCat /> }
         />
         <Route element={ <NotFound /> } />
       </Routes>

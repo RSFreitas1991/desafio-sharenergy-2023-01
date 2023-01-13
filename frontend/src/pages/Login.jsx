@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Users() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [remember, setRemember] = useState(false);
@@ -46,7 +46,7 @@ function Login() {
           />
           <button
             type="button"
-            onClick={ () => navigate('/index') }
+            onClick={ () => navigate('/Users') }
             disabled={ submitButton }
             className="border-2 rounded-md border-black cursor-pointer
             m-2 max-w-xs p-1 text-white font-sans hover:bg-blue-300 hover:text-black"
@@ -74,4 +74,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Users;

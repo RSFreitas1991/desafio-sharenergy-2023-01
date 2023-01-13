@@ -53,7 +53,7 @@ function FetchAndSearch() {
             placeholder="Numero de usuários"
             onChange={ handleChange }
             value={ tempUsersFetch || '' }
-            className="border-2 border-black rounded-md m-2 w-40 hover:scale-110"
+            className="border-2 border-black rounded-md m-2 w-44 hover:scale-110"
           />
           <input
             type="number"
@@ -61,7 +61,7 @@ function FetchAndSearch() {
             placeholder="Usuários por página"
             onChange={ handleChange }
             value={ tempUsersPerPage || '' }
-            className="border-2 border-black rounded-md m-2 w-40 hover:scale-110"
+            className="border-2 border-black rounded-md m-2 w-44 hover:scale-110"
           />
         </div>
         <button
@@ -79,7 +79,7 @@ function FetchAndSearch() {
       </fieldset>
       <div className="flex">
         <fieldset className="flex items-center">
-          <select name="attributes" id="attributes" className="h-7 m-2">
+          <select name="attributes" id="attributes" className="h-7 m-2 cursor-pointer">
             <option value="name">Nome</option>
             <option value="email">Email</option>
             <option value="username">Username</option>
