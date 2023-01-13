@@ -41,6 +41,7 @@ function Header() {
         <button
           type="button"
           className="border-2 p-1 rounded"
+          onClick={ () => navigate('/RandomDog') }
         >
           RANDOM DOG
         </button>

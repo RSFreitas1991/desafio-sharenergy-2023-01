@@ -4,6 +4,7 @@ import Users from './pages/Users';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import HttpCat from './pages/HttpCat';
+import RandomDog from './pages/RandomDog';
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
         <Route
           path="/HttpCat"
           element={ <HttpCat /> }
+        />
+        <Route
+          path="/RandomDog"
+          element={ <RandomDog /> }
         />
         <Route element={ <NotFound /> } />
       </Routes>
